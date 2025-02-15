@@ -1,0 +1,20 @@
+OptiConnect Solutions - Call Center Performance Analysis
+
+### 1. Were calls consistently answered in a timely manner?
+To determine whether calls were answered in a timely manner, we can analyze the "Speed of Answer" metric in the dataset. By visualizing this in Power BI, we can create a histogram or a time series chart to identify trends over time.
+
+### 2. Did the agents successfully resolve customer issues?
+Using the "Resolved (Y/N)" field, we can calculate the percentage of resolved calls. A high resolution rate indicates effective problem-solving by agents.
+
+### 3. How did the speed of answer and average talk duration impact customer satisfaction?
+We can use correlation analysis in Power BI to examine the relationship between "Speed of Answer," "Average Talk Duration," and "Satisfaction Rating." If shorter wait times and efficient call handling correlate with higher satisfaction scores, we can recommend strategies to optimize these factors.
+
+### 4. Were there patterns or trends hidden within the data that could unlock the key to achieving optimal call center performance?
+We can apply trend analysis and clustering techniques to identify patterns such as:
+   - Peak call hours
+   - Agent performance differences
+   - Common reasons for unresolved calls
+   - Seasonal variations in call volume
+
+### Conclusion:
+By utilizing Power BI dashboards, OptiConnect Solutions can monitor key metrics and improve operational efficiency. The insights derived will help optimize workforce allocation, reduce customer wait times, and enhance overall service quality.
