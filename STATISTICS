@@ -1,0 +1,208 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOILTQY2sFtj8k7R/MGfc5/",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ashish78905/OPTICONNECT_CALLL_CENTER_ANALYSIS-ASSIGNMENT/blob/main/STATISTICS\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# DESCRIPTIVE STATISTICS"
+      ],
+      "metadata": {
+        "id": "c9Q-8TiqrOUu"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "np.mean(data)\n",
+        "np.mean(df['tip'])"
+      ],
+      "metadata": {
+        "id": "99_j04N7rM7d"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Display information about the DataFrame, including data types and non-null values\n",
+        "df.info()\n",
+        "# Display descriptive statistics for numerical columns\n",
+        "df.describe()"
+      ],
+      "metadata": {
+        "id": "aHZXEvirrYK9"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Calculate and display the median of the data\n",
+        "np.median(data)\n",
+        "np.median(df['tip'])"
+      ],
+      "metadata": {
+        "id": "M4cy4dGWrb-f"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import statistics\n",
+        "# Calculate and display the mode of the data\n",
+        "statistics.mode(data)"
+      ],
+      "metadata": {
+        "id": "4qWkz_WAriTE"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Calculate and display percentiles of the data\n",
+        "np.percentile(data, [25, 50, 75, 100])"
+      ],
+      "metadata": {
+        "id": "U9fACwjcros3"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Calculate and display the variance of the data\n",
+        "np.var(data)\n",
+        "statistics.variance(data) #sample variance\n",
+        "statistics.pvariance(data) #population variance\n",
+        "#standard dev using math library\n",
+        "import math\n",
+        "math.sqrt(statistics.pvariance(data))"
+      ],
+      "metadata": {
+        "id": "3z53N7I9rwCd"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Calculate and display the standard deviation of the data\n",
+        "np.std(data)"
+      ],
+      "metadata": {
+        "id": "V2EahjPEryqt"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Calculate and display the correlation matrix\n",
+        "df.corr()\n",
+        "\n",
+        "# Visualize the correlation matrix using a heatmap\n",
+        "corr = df.corr()\n",
+        "sns.heatmap(corr, annot=True)\n",
+        "\n",
+        "# Calculate and display the covariance matrix\n",
+        "df.cov()"
+      ],
+      "metadata": {
+        "id": "_Y9T_ijCsBFz"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "145a010a"
+      },
+      "source": [
+        "This cell uses the Seaborn library to generate several types of plots for visualizing data:\n",
+        "\n",
+        "- `sns.boxplot(data)`: Creates a box plot of the `data`. Box plots show the distribution of a dataset, including the median, quartiles, and potential outliers.\n",
+        "- `sns.pairplot(df)`: Generates a grid of scatter plots showing the relationships between all pairs of numerical variables in the `df` DataFrame. Histograms of each variable are shown on the diagonal.\n",
+        "- `sns.histplot(data)`: Creates a histogram of the `data`. Histograms show the frequency distribution of a single variable.\n",
+        "- `sns.histplot(data, kde = True)`: Creates a histogram of the `data` with a Kernel Density Estimate (KDE) line overlaid. The KDE provides a smoothed representation of the distribution.\n",
+        "- `sns.histplot(df['total_bill'])`: Creates a histogram of the 'total_bill' column in the `df` DataFrame.\n",
+        "- `sns.histplot(df['total_bill'], kde = True)`: Creates a histogram of the 'total_bill' column with a KDE line.\n",
+        "- `sns.distplot(df['total_bill'], kde = True)`: This is an older function from Seaborn that creates a histogram with a KDE. While still functional, `sns.histplot` is the recommended function for creating histograms in newer versions of Seaborn.\n",
+        "\n",
+        "These plots are useful for understanding the distribution of individual variables and the relationships between multiple variables in a dataset."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Generate a box plot to visualize data distribution\n",
+        "sns.boxplot(data)\n",
+        "# Generate a pair plot to visualize relationships between variables\n",
+        "sns.pairplot(df)\n",
+        "# Generate histograms to visualize data distribution\n",
+        "sns.histplot(data)\n",
+        "sns.histplot(data, kde = True)\n",
+        "sns.histplot(df['total_bill'])\n",
+        "sns.histplot(df['total_bill'], kde = True)\n",
+        "sns.distplot(df['total_bill'], kde = True)"
+      ],
+      "metadata": {
+        "id": "4C4zCX9bseH4"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# INFRENTIAL STATISTICS"
+      ],
+      "metadata": {
+        "id": "jV3_NTo-tkBc"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "Tf2pX7jvttkx"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
